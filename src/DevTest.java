@@ -5,11 +5,16 @@ public class DevTest {
 
         String firstName = "";
         Scanner in = new Scanner(System.in);
+        int age = 0;
 
+        //firstName = getNonZeroLenString(in, "Enter your first name");
 
-        firstName = getNonZeroLenString(in, "Enter your first name");
+        //System.out.println("F name is " + firstName);
 
-        System.out.println("F name is " + firstName);
+        //age = getInt(in, "Enter your age");
+
+        //System.out.println("You said your age is " + age);
+
 
     }
 
@@ -29,7 +34,25 @@ public class DevTest {
         return retVal;
     }
 
+    public static int getInt(Scanner pipe, String prompt){
+        int retVal = 0;
+        boolean done = false;
+        String trash = "";
 
+        while(!done){
+            System.out.print(prompt + ": ");
+            if(pipe.hasNextInt()){
+                retVal = pipe.nextInt();
+                pipe.nextLine();
+                done = true;
 
+            } else {
+                trash = pipe.nextLine();
+                System.out.println("Enter a valid integer " + trash);
+            }
 
+        }
+
+        return retVal;
+    }
 }
